@@ -52,7 +52,7 @@ namespace LibraryManagementSystem.Services
         }
 
         // Return a borrowed book
-        public bool ReturnBook(int borrowId, DateTime returnDate)
+        public void ReturnBook(int borrowId, DateTime returnDate)
         {
             if (borrowId <= 0)
             {
@@ -86,9 +86,9 @@ namespace LibraryManagementSystem.Services
                     "Return date cannot be before the borrow date.");
             }
 
-            return borrowRepository.ReturnBook(
-                borrowId,
-                returnDate);
+            borrowRepository.ReturnBook(
+                    borrowId,
+                    returnDate);
         }
     }
 }

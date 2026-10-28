@@ -33,7 +33,7 @@ namespace LibraryManagementSystem.Services
         }
 
         // Pay a fine
-        public bool PayFine(int fineId, decimal paymentAmount)
+        public void PayFine(int fineId, decimal paymentAmount)
         {
             if (fineId <= 0)
             {
@@ -70,7 +70,7 @@ namespace LibraryManagementSystem.Services
                     "Payment cannot exceed the remaining fine amount.");
             }
 
-            return fineRepository.PayFine(fineId, paymentAmount);
+            fineRepository.PayFine(fineId, paymentAmount);
         }
     }
 }
